@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Tejeda 79189</title>
+</head>
+
+<body>
+
+    <h2>Counter</h2>
+    <div id="box-counter"> 0</div>
+    <div id="container-buttons">
+        <button id="btn-decrement">Decrement</button>        
+        <button id="btn-reset">RESET</button>
+        <button id="btn-increment">Increment</button>
+    </div>
+
+
+
+
+
+    <script>
+        const boxCounter = document.getElementById('box-counter');
+        const containerButtons = document.getElementById('container-buttons');
+
+        let counterValue =0;
+        containerButtons.addEventListener('click',(event)=>{
+            if(event.target.id === 'btn-increment'){
+                counterValue++;
+            }else if(event.target.id ==='btn-reset'){
+                counterValue=0;
+            }else if(event.target.id === 'btn-decrement'){
+                counterValue--;
+            }
+            boxCounter.innerText=counterValue;
+            if(counterValue>0){
+                boxCounter.style.color= 'green';
+            }else if (counterValue<0){
+                boxCounter.style.color='RED';
+            }else{
+                boxCounter.style.color='brown'
+            }
+        })
+
+
+    </script>
+</body>
+</html>
