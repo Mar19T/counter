@@ -1,49 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Tejeda 79189</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mario Tejeda 79189</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(135deg,#f6c8a8,#a5d8d0,#a79af5);
+}
+
+.container{
+    text-align:center;
+}
+
+h2{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+#box-counter{
+    font-size:90px;
+    margin-bottom:40px;
+    font-weight:bold;
+    color:brown;
+}
+
+#container-buttons{
+    display:flex;
+    gap:25px;
+    justify-content:center;
+}
+
+button{
+    padding:15px 25px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#eee;
+    box-shadow:0 4px 6px rgba(0,0,0,0.2);
+    transition:0.2s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#btn-increment{
+    color:green;
+}
+
+#btn-decrement{
+    color:red;
+}
+
+#btn-reset{
+    color:#333;
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="container">
     <h2>Counter</h2>
-    <div id="box-counter"> 0</div>
+
+    <div id="box-counter">0</div>
+
     <div id="container-buttons">
-        <button id="btn-decrement">Decrement</button>        
+        <button id="btn-decrement">DECREASE</button>
         <button id="btn-reset">RESET</button>
-        <button id="btn-increment">Increment</button>
+        <button id="btn-increment">INCREASE</button>
     </div>
+</div>
 
 
+<script>
 
+const boxCounter = document.getElementById('box-counter');
+const containerButtons = document.getElementById('container-buttons');
 
+let counterValue =0;
 
-    <script>
-        const boxCounter = document.getElementById('box-counter');
-        const containerButtons = document.getElementById('container-buttons');
+containerButtons.addEventListener('click',(event)=>{
 
-        let counterValue =0;
-        containerButtons.addEventListener('click',(event)=>{
-            if(event.target.id === 'btn-increment'){
-                counterValue++;
-            }else if(event.target.id ==='btn-reset'){
-                counterValue=0;
-            }else if(event.target.id === 'btn-decrement'){
-                counterValue--;
-            }
-            boxCounter.innerText=counterValue;
-            if(counterValue>0){
-                boxCounter.style.color= 'green';
-            }else if (counterValue<0){
-                boxCounter.style.color='RED';
-            }else{
-                boxCounter.style.color='brown'
-            }
-        })
+    if(event.target.id === 'btn-increment'){
+        counterValue++;
+    }
+    else if(event.target.id ==='btn-reset'){
+        counterValue=0;
+    }
+    else if(event.target.id === 'btn-decrement'){
+        counterValue--;
+    }
 
+    boxCounter.innerText=counterValue;
 
-    </script>
+    if(counterValue>0){
+        boxCounter.style.color= 'green';
+    }
+    else if (counterValue<0){
+        boxCounter.style.color='red';
+    }
+    else{
+        boxCounter.style.color='brown'
+    }
+
+})
+
+</script>
+
 </body>
 </html>
